@@ -1,15 +1,25 @@
 // content.js
 
-// Create a connection port
 const port = chrome.runtime.connect({ name: "content" });
-
-// Send a message to the background.js
-chrome.runtime.sendMessage({ from: "content.js", data: "Hi, this is content.js! "});
 
 // Listen for messages from the background.js
 port.onMessage.addListener((message) => {
   if (message.from === "background.js") {
     // Handle the message from background.js
-    console.log("Received message from background.js:", message.data);
+    monitorSyllableChanges();
   }
 });
+
+// Function to monitor changes to the innerHTML of elements with class "syllable"
+function monitorSyllableChanges() {
+  const target_div = document.querySelector(".syllable");
+
+  const observer = new MutationObserver((mutationsList) => {
+    mutationsList.forEach((mutation) => {
+      console.log("target_div new value: ", mutation.target.innerHTML);
+    });
+  });
+
+  // Start observing changes on each syllable element
+  observer.observe(target_div, { characterData: true, childList: true, subtree: true });
+}
