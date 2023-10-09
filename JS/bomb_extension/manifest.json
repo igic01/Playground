@@ -3,7 +3,7 @@
   "name": "HTML Viewer",
   "version": "1.0",
   "description": "Capture and display the HTML content of a webpage",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "popup.html"
   },
