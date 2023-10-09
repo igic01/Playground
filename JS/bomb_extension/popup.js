@@ -19,11 +19,16 @@ b_start.addEventListener("click", () => {
     if (data.switch_status === false) {
       chrome.storage.local.set({ switch_status: true });
       chrome.runtime.sendMessage({ from: "popup.js", data: "start" });
+      
+
       b_start.innerHTML = "Press to stop";
+      console.log("Pressed start");
     } else if (data.switch_status === true) {
       chrome.storage.local.set({ switch_status: false });
       chrome.runtime.sendMessage({ from: "popup.js", data: "stop" });
+
       b_start.innerHTML = "Press to start";
+      console.log("Pressed stop");
     }
   });
 });
