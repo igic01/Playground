@@ -2,6 +2,7 @@
 const b_start = document.getElementById("b_start");
 
 chrome.storage.local.get("switch_status", function (data) {
+  console.log(data.switch_status);
   if (data.switch_status === undefined) {
     chrome.storage.local.set({ switch_status: false });
   } else {

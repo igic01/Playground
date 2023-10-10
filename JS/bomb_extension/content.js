@@ -23,12 +23,16 @@ port.onMessage.addListener((message) => {
 // Function to monitor changes to the innerHTML of elements with class "syllable"
 function monitorSyllableChanges() {
   const target_div = document.querySelector(".syllable");
+  if(target_div === null){
+    console.log('I cannot find the target');
+    return;
+  }else{
+    console.log('target founded!');
+  }
 
   observer = new MutationObserver((mutationsList) => {
-    mutationsList.forEach((mutation) => {
-      console.log("target_div new value: ", mutation.target.innerHTML);
-      fetchData(mutation.target.innerHTML);
-    });
+      console.log("target_div: ", target_div.innerHTML);  
+      fetchData(target_div.innerHTML);
   });
 
   // Start observing changes on each syllable element
