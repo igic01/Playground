@@ -1,0 +1,5 @@
+comment:
+    observer cant stop if started from different tab
+
+todo:
+    create filter for choosing a professor
