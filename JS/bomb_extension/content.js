@@ -57,8 +57,10 @@ async function fetchData(letters) {
     // Parse the response as JSON
     const data = await response.json();
 
-    // Handle the data as needed
-    console.log(data.map(item => item.word));
+    data.sort((a, b) => a.word.length - b.word.length);
+
+    // Handle the sorted data as needed
+    console.log(data.map((item) => item.word));
   } catch (error) {
     console.error('Error fetching data:', error);
   }
