@@ -1,7 +1,1 @@
-comment:
-    observer cant stop if started from different tab
-
-todo:
-    create filter for choosing a professor
-    swift proj2
-    plsx4
+Now is 2025
